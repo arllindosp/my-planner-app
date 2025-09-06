@@ -6,7 +6,7 @@ import planIcon from "../assets/plan_icon.png";
 type TopbarProps = { isOpen: boolean; onNewTaskClick?: () => void };
 
 function Topbar({ isOpen , onNewTaskClick}: TopbarProps) {
-  const topbarStyle = `w-full ml-[245px] h-[64px] mt-0 fixed top-0 left-0 w-full z-1 flex fle-row items-center transition-all duration-500 border-b ${
+  const topbarStyle = `w-full ml-[245px] h-[64px] mt-0 fixed top-0 left-0 w-full z-20 flex fle-row items-center transition-all duration-500 border-b ${
     !isOpen ? "ml-[65px] transition-all duration-500" : ""
   }`;
   const elementsContainer = `h-[50px] w-[88rem] ml-2 pl-0 flex flex-row items-center justify-between transition-all duration-500 ${

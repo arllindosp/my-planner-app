@@ -14,13 +14,14 @@ import supportIcon from "../assets/support (2).png";
 import inviteIcon from "../assets/invite.png";
 import { useState } from "react";
 import sideBarIcon from "../assets/sideBar-buttom.png";
+import newBadge from "../assets/new_badge.svg";
 
 type SidebarProps = {
   isOpen: boolean;
 };
 
 function Sidebar({ isOpen }: SidebarProps) {
-  const sidebarStyles = `w-60 z-50 h-full border-r rounded-r-xl flex flex-col justify-center items-center bg-gray-100 transition-all duration-500 ${
+  const sidebarStyles = `w-60 z-50 h-full border-r rounded-r-xl flex flex-col justify-center items-center bg-gray-100 transition-all duration-500 relative ${
     !isOpen ? "w-[60px] transition-all duration-500" : ""
   }`;
   const sidebarinnerContainer = ` h-full mt-4 mb-4 flex flex-col transition-all duration-500 ${
@@ -119,7 +120,19 @@ function Sidebar({ isOpen }: SidebarProps) {
                   alt=""
                   className={isOpen ? "w-6 h-6" : "w-6 h-6"}
                 />
-                {isOpen && <span className="text-sm">Tarefas Pendentes</span>}
+                {isOpen && (
+                  <span className="text-sm flex items-center w-full">
+                    Tarefas Pendentes
+                    <span
+                      className="ml-auto flex items-center justify-center"
+                      style={{ minWidth: "44px", height: "18px" }}
+                    >
+                      <span className="px-2 py-0 rounded-xl bg-[#A78BFA] text-white text-[8px] font-bold flex items-center justify-center">
+                        NEW
+                      </span>
+                    </span>
+                  </span>
+                )}
               </Button>
               <Button
                 className={`${buttonStyles} ${
@@ -211,6 +224,7 @@ function Sidebar({ isOpen }: SidebarProps) {
               {isOpen && <span className="text-sm">Settings</span>}
             </Button>
           </div>
+
           <div
             className={`self-end flex items-center justify-center ${
               isOpen
@@ -245,6 +259,7 @@ function Sidebar({ isOpen }: SidebarProps) {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }
